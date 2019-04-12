@@ -1,18 +1,24 @@
 import java.util.Scanner;
 
-public class Program{
+public class Program {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
         int num;
+
         do {
+
             while (!input.hasNextInt()) {
+
                 System.out.println("Please enter a positive integer");
                 System.exit(0);
+
             }
+
             num = input.nextInt();
-        } while (num < 1);
+
+        } while (num < 1 && num > 0);
 
         System.out.println(primeFactorisation(num));
 
@@ -28,15 +34,21 @@ public class Program{
 
         }
 
+        if (n <= 0) {
+
+            return "Please enter a positive integer";
+
+        }
+
         String result = "" + n + " = ";
 
         for (int i = 2; i <= n; i++) {
 
-            if (n%i == 0) {
+            if (n % i == 0) {
 
                 result += (i + " x ");
 
-                n = n/i;
+                n = n / i;
                 i = 1;
 
                 counter++;
